@@ -1,0 +1,154 @@
+/*定义动画*/
+@keyframes cube-rotate {
+    100% {
+        transform: rotate3d(1, 1, 1, 360deg)
+    }
+}
+
+@keyframes cube-front {
+    100% {
+        transform: translateZ(200px);
+    }
+}
+
+@keyframes cube-back {
+    50% {
+        transform: rotateY(180deg);
+    }
+    100% {
+        transform: rotateY(180deg) translateZ(200px);
+    }
+}
+
+@keyframes cube-top {
+    50% {
+        transform: rotateX(90deg);
+    }
+    100% {
+        transform: rotateX(90deg) translateZ(200px);
+    }
+}
+
+@keyframes cube-buttom {
+    50% {
+        transform: rotateX(-90deg);
+    }
+    100% {
+        transform: rotateX(-90deg) translateZ(200px);
+    }
+}
+
+@keyframes cube-left {
+    50% {
+        transform: rotateY(-90deg);
+    }
+    100% {
+        transform: rotateY(-90deg) translateZ(200px);
+    }
+}
+
+@keyframes cube-right {
+    50% {
+        transform: rotateY(90deg);
+    }
+    100% {
+        transform: rotateY(90deg) translateZ(200px);
+    }
+}
+
+/*css样式*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/*flex布局，居中 fixed铺满屏幕*/
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    perspective: 800px;
+    perspective-origin: 50% 50%;
+
+    transition: 2s;
+}
+
+.cube {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    transform-style: preserve-3d;
+    animation: cube-rotate 10s 14s linear infinite;
+
+}
+
+.cube div {
+    font:normal 2em "Microsoft YaHei UI";
+    position: absolute;
+    border: solid 2px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    text-align: center;
+    line-height: 400px;
+}
+
+/*加上动画*/
+.cube .front {
+    animation: cube-front 1s 3s linear both;
+}
+
+.cube .back {
+    animation: cube-back 2s 4s linear both;
+}
+
+.cube .top {
+    animation: cube-top 2s 6s linear both;
+}
+
+.cube .buttom {
+    animation: cube-buttom 2s 8s linear both;
+}
+
+.cube .left {
+    animation: cube-left 2s 10s linear both;
+}
+
+.cube .right {
+    animation: cube-right 2s 12s linear both;
+}
+
+/*加上变色hover效果*/
+.cube:hover .right {
+    background-color: rgba(123, 211, 221, 0.3);
+}
+
+.cube:hover .front {
+    background-color: rgba(123, 211, 123, 0.3);
+}
+
+.cube:hover .back {
+    background-color: rgba(223, 111, 121, 0.3);
+}
+
+.cube:hover .top {
+    background-color: rgba(123, 111, 221, 0.3);
+}
+
+.cube:hover .buttom {
+    background-color: rgba(233, 81, 37, 0.3);
+}
+
+.cube:hover .left {
+    background-color: rgba(80, 80, 221, 0.3);
+}
+
+
+
